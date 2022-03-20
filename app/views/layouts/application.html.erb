@@ -11,8 +11,11 @@
   </head>
 
   <body>
-  <nav class = nav_container>
-    <li>Hello</li>
+  <nav class="nav_container" id="nav_containera">
+    <ul>
+      <li><%= link_to 'Doctors', doctors_path %></li>
+      <li><%= link_to 'Drugs', drugs_path %></li>
+    </ul>
   </nav>
     <%= yield %>
   </body>

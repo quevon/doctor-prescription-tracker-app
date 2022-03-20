@@ -1,33 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Drugs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Drug name</th>
-      <th>Drug price</th>
-      <th>Date created</th>
-      <th>Date expire</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @drugs.each do |drug| %>
+<h1 class=header>Drugs</h1>
+<div class=table_containers>
+  <table>
+    <thead>
       <tr>
-        <td><%= drug.drug_name %></td>
-        <td><%= drug.drug_price %></td>
-        <td><%= drug.date_created %></td>
-        <td><%= drug.date_expire %></td>
-        <td><%= link_to 'Show', drug %></td>
-        <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-        <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Drug name</th>
+        <th>Drug price</th>
+        <th>Date created</th>
+        <th>Date expire</th>
+        <th colspan="3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @drugs.each do |drug| %>
+        <tr>
+          <td><%= drug.drug_name %></td>
+          <td><%= drug.drug_price %></td>
+          <td><%= drug.date_created %></td>
+          <td><%= drug.date_expire %></td>
+          <td><%= link_to 'Show', drug %></td>
+          <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
+          <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
-
-<%= link_to 'New Drug', new_drug_path %>
+<div class =buttons_container>
+  <%= link_to 'Add New Drug', new_drug_path , :class => 'button'%>
+</div>
