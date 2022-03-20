@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_19_045848) do
+ActiveRecord::Schema.define(version: 2022_03_20_001100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "doctors", force: :cascade do |t|
     t.string "doctor_name"
-    t.integer "doctor_num"
+    t.bigint "doctor_num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.string "drug_name"
+    t.bigint "drug_price"
+    t.date "date_created"
+    t.date "date_expire"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
