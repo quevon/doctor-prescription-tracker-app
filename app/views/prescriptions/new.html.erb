@@ -1,2 +1,9 @@
-<h1>Prescriptions#new</h1>
-<p>Find me in app/views/prescriptions/new.html.erb</p>
+<h1 class=header>Create Prescriptions Page</h1>
+
+
+<div class= form_containers>
+    <%= form_with model: [@doctor,@prescription] do |form|%>
+    <%= form.date_field :prescription_date, placeholder: "Enter Date" ,:class => 'txt_fld' %>
+    <%= form.submit :class => 'button' %>
+    <%end%>
+</div>
