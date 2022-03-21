@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% content_for :sidebar do %>
+this will show up in the sidebar div
+<% end %>
 <p>
   <strong>Doctors name:</strong>
   <%= @doctor.doctor_name %>

@@ -2,15 +2,18 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-const test = document.getElementById("test")
+// const test = document.getElementById("test")
 
-test.onclick = () => {
-    test.document.getElementById("test").style.color = "red";
-}
+// test.onclick = () => {
+//     test.document.getElementById("test").style.color = "red";
+// }
+
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "@fortawesome/fontawesome-free/js/all"
 
 
 

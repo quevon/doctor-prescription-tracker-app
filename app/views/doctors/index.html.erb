@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= button_tag '☰', id: 'button-click', type: 'button' ,class: "fa-bar"%>
 <h1 class=header>Doctors</h1>
+
 <div class=table_containers>
   <table>
     <thead>
@@ -25,6 +27,7 @@
     </table>
   </div>
 <br>
+
 <div class =buttons_container>
   <%= link_to 'Add New Doctor', new_doctor_path , :class => 'button'%>
 </div>

@@ -8,15 +8,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'nav', 'data-turbolinks-track': 'reload'  %>
   </head>
 
   <body>
-  <nav class="nav_container" id="nav_containera">
-    <ul>
-      <li><%= link_to 'Doctors', doctors_path %></li>
-      <li><%= link_to 'Drugs', drugs_path %></li>
+  <div class= nav_container id=nav_container>
+  <ul>
+      <li><%= button_tag '☰', id: 'button-click1', type: 'button'%>
+      <li><i class="fas fa-user"></i><%= link_to 'Doctors', doctors_path, :class => 'link' %></li>
+      <li><i class="fa-solid fa-pills"></i><%= link_to 'Drugs', drugs_path, :class => 'link' %></li>
     </ul>
-  </nav>
+  </div>
+  <div class= container>
     <%= yield %>
+  </div>
   </body>
 </html>
