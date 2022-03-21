@@ -101,11 +101,7 @@ ul li {
 ul li:hover {
   background-color: red;
 }
-.fa-bars {
-  font-size: 1rem;
-  padding-top: 30px;
-  cursor: pointer;
-}
+
 .fa-user {
   font-size: 1rem;
   color: aliceblue;
@@ -126,7 +122,25 @@ ul li:hover {
 ul li a{
   color: aliceblue;
 }
-
-.menu{
+.menu-container{
+  padding-left: 15px;
+}
+.menu-bar {
+  font-size: 1.5rem;
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+
+}
+.menu-bar1{
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+.menu-bar1:hover{
+  background-color: #04aa6d;
+}
+.menu-bar:hover{
+  background-color: #04aa6d;
 }

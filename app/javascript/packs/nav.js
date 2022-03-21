@@ -21,9 +21,10 @@ function showNav() {
     document.getElementById("nav_container").style.left = "0";
     // console.log("hello");
 }
-  window.addEventListener('load', () => {  
+ document.addEventListener('turbolinks:load', () => {  
     const clickButton = document.getElementById("button-click"); 
     clickButton.addEventListener("click", showNav); 
+    
   });
 
 
