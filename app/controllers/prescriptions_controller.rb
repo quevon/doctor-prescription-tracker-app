@@ -17,12 +17,12 @@ class PrescriptionsController < ApplicationController
           render :new
       end
   end
-  # def destroy
-  #     @article = Article.find(params[:article_id])
-  #     @comment = Comment.find(params[:id])
-  #     @comment.destroy
-  #     redirect_to article_comments_path(@article.id)
-  # end
+  def destroy
+      @doctor = Doctor.find(params[:doctor_id])
+      @prescription = Prescription.find(params[:id])
+      @prescription.destroy
+      redirect_to doctor_prescriptions_path(@doctor.id)
+  end
 
   private
 

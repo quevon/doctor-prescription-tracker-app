@@ -18,12 +18,9 @@
         <tbody>
         <% @prescriptions.each do |prescription| %>
             <tr>
-                <td>
-                <%= prescription.prescription_date %>
-                </td>
-                <td>
-                <%= prescription.doctor_id %>
-                </td>
+                <td><%= prescription.prescription_date %></td>
+                <td><%= prescription.doctor_id %></td>
+                <td><%= link_to 'Delete', doctor_prescription_path(@doctor.id, prescription), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'link' %></td>
             </tr>
         <% end %>
         </tbody>
