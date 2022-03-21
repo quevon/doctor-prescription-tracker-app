@@ -99,7 +99,7 @@ ul li {
   
 }
 ul li:hover {
-  background-color: red;
+  background-color: #4caf50;
 }
 
 .fa-user {
