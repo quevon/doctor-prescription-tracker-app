@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
+  
   before_action :set_doctor, only: %i[ show edit update destroy ]
-
   # GET /doctors or /doctors.json
   def index
     @doctors = Doctor.all
@@ -67,4 +67,7 @@ class DoctorsController < ApplicationController
     def doctor_params
       params.require(:doctor).permit(:doctor_name, :doctor_num)
     end
+
+  
+  
 end

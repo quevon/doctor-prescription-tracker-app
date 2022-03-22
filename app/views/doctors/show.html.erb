@@ -12,6 +12,13 @@ this will show up in the sidebar div
   <%= @doctor.doctor_num %>
 </p>
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<h2>Prescription</h2>
+<% for prescription in @doctor.prescriptions%>
+    <ul>
+      <li><%= prescription.prescription_date %></li>
+    </ul>
+<%end%>
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> 
+<%= link_to 'Add Prescription', doctor_prescriptions_path(@doctor) %>
 <%= link_to 'Back', doctors_path %>
-int(11)
