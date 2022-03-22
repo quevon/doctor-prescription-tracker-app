@@ -1,9 +1,0 @@
-<h1 class=header>Create Prescriptions Page</h1>
-
-
-<div class= form_containers>
-    <%= form_with model: [@doctor,@prescription] do |form|%>
-    <%= form.date_field :prescription_date, placeholder: "Enter Date" ,:class => 'txt_fld' %>
-    <%= form.submit :class => 'button' %>
-    <%end%>
-</div>
