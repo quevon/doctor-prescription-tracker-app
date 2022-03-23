@@ -8,6 +8,7 @@
       <th>Prescription date</th>
       <th>Doctor</th>
       <th>Total Prescription Drugs</th>
+      <th>Total Price</th>
       <th>Prescription Drugs</th>
       <th colspan="3">Actions</th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= prescription.prescription_date %></td>
         <td><%= prescription.doctor.doctor_name %></td>
         <td><%= prescription.prescription_drugs.count %></td>
+         <td><%= prescription.prescription_drugs.joins(:drug).sum(:drug_price) %></td>
         <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>
         <td><%= link_to 'Show Doctor', [@doctor] %></td>
         <td><%= link_to 'Edit', edit_doctor_prescription_path(@doctor, prescription) %></td>

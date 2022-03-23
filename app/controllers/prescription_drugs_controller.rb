@@ -7,6 +7,7 @@ class PrescriptionDrugsController < ApplicationController
   def index
     @prescription = Prescription.find(params[:prescription_id])
     @prescription_drugs = @prescription.prescription_drugs
+
   end
 
   # GET /prescription_drugs/1 or /prescription_drugs/1.json
@@ -29,7 +30,7 @@ class PrescriptionDrugsController < ApplicationController
 
     respond_to do |format|
       if @prescription_drug.save
-        format.html { redirect_to doctor_prescription_prescription_drugs(@prescription), notice: "Prescription drug was successfully created." }
+        format.html { redirect_to doctor_prescription_prescription_drugs_path([@doctor,@prescription]), notice: "Prescription drug was successfully created." }
         format.json { render :show, status: :created, location: @prescription_drug }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +43,7 @@ class PrescriptionDrugsController < ApplicationController
   def update
     respond_to do |format|
       if @prescription_drug.update(prescription_drug_params)
-        format.html { redirect_to  doctor_prescription_prescription_drugs(@prescription), notice: "Prescription drug was successfully updated." }
+        format.html { redirect_to  doctor_prescription_prescription_drugs_path(@docotor,@prescription), notice: "Prescription drug was successfully updated." }
         format.json { render :show, status: :ok, location: @prescription_drug }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +57,7 @@ class PrescriptionDrugsController < ApplicationController
     @prescription_drug.destroy
 
     respond_to do |format|
-      format.html { redirect_to doctor_prescription_prescription_drugs(@prescription), notice: "Prescription drug was successfully destroyed." }
+      format.html { redirect_to doctor_prescription_prescription_drugs_path(@doctor,@prescription), notice: "Prescription drug was successfully destroyed." }
       format.json { head :no_content }
     end
   end

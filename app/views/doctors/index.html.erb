@@ -22,6 +22,7 @@
             <td><%= doctor.doctor_name %></td>
             <td><%= doctor.doctor_num %></td>
             <td><%= doctor.prescriptions.count %></td>
+           
             <td><%= link_to 'Prescriptions', doctor_prescriptions_path(doctor) %></td>
             <td><%= link_to 'Show', doctor %></td>
             <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>

@@ -40,7 +40,7 @@ td {
   border-bottom: 1px solid #ddd;
 }
 th {
-  background-color: #04aa6d;
+  background-color: #1E90FF;
   color: white;
 }
 tr:hover {
@@ -52,7 +52,7 @@ tr:hover {
   justify-content: center;
 }
 .button {
-  background-color: #4caf50; /* Green */
+  background-color: #1E90FF; /* Green */
   border: none;
   color: white;
   padding: 12px 30px;
@@ -99,7 +99,7 @@ ul li {
   
 }
 ul li:hover {
-  background-color: #4caf50;
+  background-color: #1E90FF;
 }
 
 .fa-user {
@@ -143,8 +143,8 @@ ul li a{
   border: none;
 }
 .menu-bar1:hover{
-  background-color: #04aa6d;
+  background-color: #1E90FF;
 }
 .menu-bar:hover{
-  background-color: #04aa6d;
+  background-color: #1E90FF;
 }

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  get 'prescriptions', to:'prescriptions#prescription', as: 'all_prescriptions'
+ 
   resources :drugs
   resources :doctors do
+    # get 'prescriptions', to:'prescriptions#prescription', as: 'all_prescriptions'
     resources :prescriptions do
       resources :prescription_drugs
     end

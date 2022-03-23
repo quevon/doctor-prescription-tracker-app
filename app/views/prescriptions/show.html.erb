@@ -10,12 +10,7 @@
   <%= @prescription.doctor_id %>
 </p>
 
-<h2>Prescription_Drugs</h2>
-<% for prescription_drug in @prescription.prescription_drugs%>
-    <ul>
-      <li><%= prescription_drug.drug_id %></li>
-    </ul>
-<%end%>
+
 
 
 <%= link_to 'Edit', edit_prescription_path(@prescription) %> |

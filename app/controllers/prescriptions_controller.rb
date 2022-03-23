@@ -5,7 +5,6 @@ class PrescriptionsController < ApplicationController
 
   # GET /prescriptions or /prescriptions.json
   def index
-    @doctor = Doctor.find(params[:doctor_id])
     @prescriptions = @doctor.prescriptions
     # @prescriptions = Prescription.all
     # @prescription = @doctor.prescriptions
