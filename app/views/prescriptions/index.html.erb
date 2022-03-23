@@ -7,7 +7,9 @@
     <tr>
       <th>Prescription date</th>
       <th>Doctor</th>
-      <th colspan="3"></th>
+      <th>Total Prescription Drugs</th>
+      <th>Prescription Drugs</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -16,6 +18,8 @@
       <tr>
         <td><%= prescription.prescription_date %></td>
         <td><%= prescription.doctor.doctor_name %></td>
+        <td><%= prescription.prescription_drugs.count %></td>
+        <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>
         <td><%= link_to 'Show Doctor', [@doctor] %></td>
         <td><%= link_to 'Edit', edit_doctor_prescription_path(@doctor, prescription) %></td>
         <td><%= link_to 'Destroy Prescription', [@doctor, prescription], method: :delete, data: { confirm: 'Are you sure?' } %></td>
