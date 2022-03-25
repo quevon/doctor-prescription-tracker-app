@@ -2,30 +2,30 @@
 <% content_for :sidebar do %>
 this will show up in the sidebar div
 <% end %>
-<p>
-  <strong>Doctors name:</strong>
-  <%= @doctor.doctor_name %>
-</p>
+<div class=table_containers>
+  <table>
+    <thead>
+      <tr>
+        <th>Doctors Name</th>
+        <th>Phone Number</th>
+        <th>Prescription ID</th>
+        <th>Prescription Date</th>
+        <th>Prescription Drugs</th>
 
-<p>
-  <strong>Phone Number:</strong>
-  <%= @doctor.doctor_num %>
-</p>
-
-<h2>Prescription Date</h2>
-<% for prescription in @doctor.prescriptions%>
-    <ul>
-      <li><%= prescription.prescription_date %></li>
-        <%# <% for prescription_drug in @prescription.prescription_drugs%>
-        <%# <ul>
-          <li><%= prescription_drug.drug_id%></li>
-        <%# </ul>
-        <%end%> %> %> %>
-    </ul>
-<%end%>
-
+      </tr>
+    </thead>
+      <tbody>
+        <% for prescription in @doctor.prescriptions%>
+            <tr>
+              <td><%= @doctor.doctor_name %></td>
+              <td>  <%= @doctor.doctor_num %></td>
+              <td><%= prescription.id %></td>
+              <td><%= prescription.prescription_date %></td>
+              <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>
+            </tr>
+        <%end%>
+      </tbody>
+  </table>
+</div>
 
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> 
-<%= link_to 'Add Prescription', doctor_prescriptions_path(@doctor) %>
-<%= link_to 'Back', doctors_path %>

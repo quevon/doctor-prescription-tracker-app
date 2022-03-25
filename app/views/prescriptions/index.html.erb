@@ -1,10 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Prescriptions</h1>
-
+<h1 class=header>Prescriptions</h1>
+<div class=arrow_back>
+<%= link_to doctors_path(@doctor) do %>
+  <i class="fa-solid fa-arrow-left"></i>
+<% end %>
+</div>
+<div class=table_containers>
 <table>
   <thead>
     <tr>
+      <th>Prescription ID</th>
       <th>Prescription date</th>
       <th>Doctor</th>
       <th>Total Prescription Drugs</th>
@@ -17,19 +23,28 @@
   <tbody>
     <% @prescriptions.each do |prescription| %>
       <tr>
+        <td><%= prescription.id%></td>
         <td><%= prescription.prescription_date %></td>
         <td><%= prescription.doctor.doctor_name %></td>
         <td><%= prescription.prescription_drugs.count %></td>
-         <td><%= prescription.prescription_drugs.joins(:drug).sum(:drug_price) %></td>
+        <td><%= prescription.prescription_drugs.joins(:drug).sum("drug_price * quantity") %></td>
         <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>
-        <td><%= link_to 'Show Doctor', [@doctor] %></td>
-        <td><%= link_to 'Edit', edit_doctor_prescription_path(@doctor, prescription) %></td>
-        <td><%= link_to 'Destroy Prescription', [@doctor, prescription], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to [@doctor] do %>
+            <i class="fa-solid fa-eye"></i>
+        <% end %></td>
+        <td><%= link_to edit_doctor_prescription_path(@doctor, prescription) do %>
+          <i class="fas fa-pen"></i>
+        <% end %></td>
+        <td><%= link_to  [@doctor, prescription], method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Prescription', new_doctor_prescription_path(@doctor) %>
+<div class =buttons_container>
+  <%= link_to 'New Prescription', new_doctor_prescription_path(@doctor) , :class => 'button' %>
+</div>

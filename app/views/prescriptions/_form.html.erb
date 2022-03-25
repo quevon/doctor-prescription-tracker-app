@@ -1,27 +1,27 @@
-<%= form_with(model: [@doctor,prescription], local: true) do |form| %>
-  <% if prescription.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
+<div class= form_containers>
+  <%= form_with(model: [@doctor,prescription], local: true) do |form| %>
+    <% if prescription.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
 
-      <ul>
-        <% prescription.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% prescription.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h1><span>Doctor: </span><%= @doctor.doctor_name %></h1>
+    <div class="field">
+      <%= form.date_select :prescription_date, placeholder: "Enter Prescription Date" ,:class => 'txt_fld' %>
+    </div>
+    <div class="actions">
+      <div class =buttons_container>
+          <%= form.submit :class => 'button' %>
+        </div>
+        <div class =buttons_container>
+          <%= link_to 'Back' , doctor_prescriptions_path(@doctor) ,:class => 'button'%>
+        </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :prescription_date %>
-    <%= form.date_select :prescription_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :doctor_id %>
-    <%= form.text_field :doctor_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

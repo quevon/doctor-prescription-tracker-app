@@ -1,8 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<div class="menu-container">
-  <%= button_tag '☰', id: 'button-click', type: 'button' ,class: "menu-bar"%>
-</div>
 <h1 class=header>Drugs</h1>
 
 <div class=table_containers>
@@ -11,8 +7,6 @@
       <tr>
         <th>Drug name</th>
         <th>Drug price</th>
-        <th>Date created</th>
-        <th>Expiration Date</th>
         <th colspan="3">Actions</th>
       </tr>
     </thead>
@@ -22,11 +16,15 @@
         <tr>
           <td><%= drug.drug_name %></td>
           <td><%= drug.drug_price %></td>
-          <td><%= drug.date_created %></td>
-          <td><%= drug.date_expire %></td>
-          <td><%= link_to 'Show', drug %></td>
-          <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-          <td><%= link_to 'Delete', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to drug do %>
+            <i class="fa-solid fa-eye"></i>
+          <% end %></td>
+          <td><%= link_to edit_drug_path(drug) do %>
+            <i class="fas fa-pen"></i>
+          <% end %></td>
+          <td><%= link_to  drug, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %></td>
         </tr>
       <% end %>
     </tbody>

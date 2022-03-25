@@ -1,27 +1,35 @@
-<%= form_with(model: doctor) do |form| %>
-  <% if doctor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+<div class= form_containers>
+  <%= form_with(model: doctor) do |form| %>
 
-      <ul>
-        <% doctor.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="field">
+      <%= form.text_field :doctor_name , placeholder: "Enter Doctor Name",:class => 'txt_fld'%>
+          <% if doctor.errors.any? %>
+            <% doctor.errors.each do |error| %>
+                <% if error.full_message == "Doctor name can't be blank" %>
+                    <p class= "err_msg"><%= "Doctor name can't be blank"%></p>
+                <% end %>
+            <% end %>
+    <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.number_field :doctor_num , placeholder: "Enter Doctor Number",:class => 'txt_fld'%>
+      <% if doctor.errors.any? %>
+            <% doctor.errors.each do |error| %>
+                <% if error.full_message == "Doctor num can't be blank" %>
+                    <p class= "err_msg"><%= "Doctor number can't be blank"%></p>
+                <% end %>
+            <% end %>
+      <% end %>
+    </div>
+
+    <div class="actions">
+       <div class =buttons_container>
+          <%= form.submit :class => 'button' %>
+        </div>
+        <div class =buttons_container>
+          <%= link_to 'Back' , doctors_path ,:class => 'button'%>
+        </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :doctor_name %>
-    <%= form.text_field :doctor_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :doctor_num %>
-    <%= form.number_field :doctor_num %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

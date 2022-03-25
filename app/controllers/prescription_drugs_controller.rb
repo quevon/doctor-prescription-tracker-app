@@ -10,6 +10,7 @@ class PrescriptionDrugsController < ApplicationController
 
   end
 
+  
   # GET /prescription_drugs/1 or /prescription_drugs/1.json
   def show
   end
@@ -43,7 +44,7 @@ class PrescriptionDrugsController < ApplicationController
   def update
     respond_to do |format|
       if @prescription_drug.update(prescription_drug_params)
-        format.html { redirect_to  doctor_prescription_prescription_drugs_path(@docotor,@prescription), notice: "Prescription drug was successfully updated." }
+        format.html { redirect_to  doctor_prescription_prescription_drugs_path(@doctor,@prescription), notice: "Prescription drug was successfully updated." }
         format.json { render :show, status: :ok, location: @prescription_drug }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,12 +66,12 @@ class PrescriptionDrugsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prescription_drug
-      @prescription_drug = @prescription.prescription_drugs(params[:id])
+      @prescription_drug = PrescriptionDrug.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def prescription_drug_params
-      params.require(:prescription_drug).permit(:prescription_id, :drug_id)
+      params.require(:prescription_drug).permit(:prescription_id, :drug_id, :quantity)
     end
 
     def get_prescription
