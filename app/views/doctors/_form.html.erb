@@ -9,7 +9,7 @@
                     <p class= "err_msg"><%= "Doctor name can't be blank"%></p>
                 <% end %>
             <% end %>
-    <% end %>
+          <% end %>
     </div>
 
     <div class="field">
@@ -18,6 +18,8 @@
             <% doctor.errors.each do |error| %>
                 <% if error.full_message == "Doctor num can't be blank" %>
                     <p class= "err_msg"><%= "Doctor number can't be blank"%></p>
+                <% else %>
+                  <p class= "err_msg"><%= "Invalid Number!(number must be 11 digits)"%></p>
                 <% end %>
             <% end %>
       <% end %>

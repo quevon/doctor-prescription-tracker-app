@@ -13,7 +13,7 @@
     <% end %>
     <h1><span>Doctor: </span><%= @doctor.doctor_name %></h1>
     <div class="field">
-      <%= form.date_select :prescription_date, placeholder: "Enter Prescription Date" ,:class => 'txt_fld' %>
+      <%= form.date_field :prescription_date, placeholder: "Enter Prescription Date" ,:class => 'txt_fld' %>
     </div>
     <div class="actions">
       <div class =buttons_container>

@@ -43,6 +43,11 @@
   </tbody>
 </table>
 </div>
+<%if @prescriptions.blank?%>
+  <div class =no_record>
+          <p><%= "No data available"%></p>
+  <div>
+<%end%>
 <br>
 
 <div class =buttons_container>

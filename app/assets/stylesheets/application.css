@@ -181,3 +181,11 @@ ul li a{
   font-size: 8px;
   color:red;
 }
+
+.no_record{
+ text-align: center;
+}
+.no_record p{
+  color: red;
+  font-size: 2rem;
+}

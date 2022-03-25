@@ -1,28 +1,40 @@
 <div class= form_containers>
   <%= form_with(model: [@doctor,@prescription,prescription_drug], local: true) do |form| %>
-    <% if prescription_drug.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(prescription_drug.errors.count, "error") %> prohibited this prescription_drug from being saved:</h2>
-
-        <ul>
-          <% prescription_drug.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
     <div class= info>
       <h1><span>Prescription ID: </span><%= @prescription_drug.prescription_id %></h1>
       <h1><span>Doctor: </span><%= @doctor.doctor_name %></h1>
     </div>
     <div class="field">
-    <%= form.select :drug_id,Drug.all.pluck(:drug_name,:id),{prompt:'Select Drugs'},{class: "txt_fld"}%>
+      <%= form.select :drug_id,Drug.all.pluck(:drug_name,:id),{prompt:'Select Drugs'},{class: "txt_fld"}%>
+       <% if prescription_drug.errors.any? %>
+            <% prescription_drug.errors.each do |error| %>
+                <% if error.full_message == "Drug must exist" %>
+                    <p class= "err_msg"><%= "Drug can't be blank"%></p>
+                <% end %>
+            <% end %>
+          <% end %>
     </div>
 
     <div class="field">
       <%= form.text_field :quantity, placeholder: "Enter Quantity" ,:class => 'txt_fld' %>
+      <% if prescription_drug.errors.any? %>
+            <% prescription_drug.errors.each do |error| %>
+                <% if error.full_message == "Quantity can't be blank" %>
+                    <p class= "err_msg"><%= "Quantity can't be blank"%></p>
+                <% end %>
+            <% end %>
+          <% end %>
     </div>
-
+    <div class="field">
+      <%= form.text_area :note, size: "70x5" , placeholder: "Enter Note" ,:class => 'txt_fld' %>
+      <% if prescription_drug.errors.any? %>
+            <% prescription_drug.errors.each do |error| %>
+                <% if error.full_message == "Note can't be blank" %>
+                    <p class= "err_msg"><%= "Note can't be blank"%></p>
+                <% end %>
+            <% end %>
+          <% end %>
+    </div>
 
     <div class="actions">
       <div class =buttons_container>

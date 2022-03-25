@@ -1,22 +1,26 @@
 <div class= form_containers>
   <%= form_with(model: drug) do |form| %>
-    <% if drug.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(drug.errors.count, "error") %> prohibited this drug from being saved:</h2>
-
-        <ul>
-          <% drug.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
       <div class="field">
         <%= form.text_field :drug_name, placeholder: "Enter Drug Name",:class => 'txt_fld'  %>
+        <% if drug.errors.any? %>
+            <% drug.errors.each do |error| %>
+                <% if error.full_message == "Drug name can't be blank" %>
+                    <p class= "err_msg"><%= "Drug name can't be blank"%></p>
+                <% end %>
+            <% end %>
+          <% end %>
       </div>
 
       <div class="field">
+
         <%= form.text_field :drug_price, placeholder: "Enter Drug Price" ,:class => 'txt_fld' %>
+         <% if drug.errors.any? %>
+            <% drug.errors.each do |error| %>
+                <% if error.full_message == "Drug price can't be blank" %>
+                    <p class= "err_msg"><%= "Drug price can't be blank"%></p>
+                <% end %>
+            <% end %>
+          <% end %>
       </div>
 
       <div class="actions">

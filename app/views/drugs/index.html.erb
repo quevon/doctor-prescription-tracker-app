@@ -12,6 +12,7 @@
     </thead>
 
     <tbody>
+    
       <% @drugs.each do |drug| %>
         <tr>
           <td><%= drug.drug_name %></td>
@@ -25,11 +26,19 @@
           <td><%= link_to  drug, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <i class="fa-solid fa-trash-can"></i>
           <% end %></td>
-        </tr>
-      <% end %>
+        </tr> 
+      <%end%>
+      
     </tbody>
+    
   </table>
+  
 </div>
+<%if @drugs.blank?%>
+  <div class =no_record>
+          <p><%= "No data available"%></p>
+  <div>
+<%end%>
 <br>
 <div class =buttons_container>
   <%= link_to 'Add New Drug', new_drug_path , :class => 'button'%>

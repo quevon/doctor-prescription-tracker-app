@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1 class=header>Doctors</h1>
+<h1 class=header>Doctor Prescriptions</h1>
 <i class="fa-duotone fa-prescription"></i>
 <div class=table_containers>
   <table>
@@ -34,6 +34,11 @@
       </tbody>
     </table>
   </div>
+  <%if @doctors.blank?%>
+    <div class =no_record>
+            <p><%= "No data available"%></p>
+    <div>
+  <%end%>
 <br>
 
 <div class =buttons_container>
