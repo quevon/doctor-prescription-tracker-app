@@ -44,7 +44,7 @@ th {
   color: white;
 }
 tr:hover {
-  background-color: coral;
+  background-color: #85B3D1FF;
 }
 /* buttons styling  */
 .buttons_container {
@@ -52,7 +52,7 @@ tr:hover {
   justify-content: center;
 }
 .button {
-  background-color: #1E90FF; /* Green */
+  background-color: #1E90FF;
   border: none;
   color: white;
   padding: 12px 30px;
@@ -63,6 +63,9 @@ tr:hover {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+}
+.buttons_container a{
+  color: aliceblue;
 }
 .button:hover {
   background-color: white;
@@ -96,10 +99,15 @@ ul li {
   padding: 10px 0 10px 20px;
   transition: 0.3s;
   cursor: pointer;
+}
+ul .link_hover:hover {
+  background-color: #1E90FF;
+  border-radius: 5px;
+  padding-left: 5px;
   
 }
-ul li:hover {
-  background-color: #1E90FF;
+ul .link_hover a:hover{
+  color: aliceblue;
 }
 
 .fa-user {

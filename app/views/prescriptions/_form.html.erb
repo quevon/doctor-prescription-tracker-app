@@ -1,19 +1,15 @@
 <div class= form_containers>
-  <%= form_with(model: [@doctor,prescription], local: true) do |form| %>
-    <% if prescription.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
-
-        <ul>
-          <% prescription.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <%= form_with(model: [@doctor,prescription], local: true) do |form| %>    
     <h1><span>Doctor: </span><%= @doctor.doctor_name %></h1>
     <div class="field">
       <%= form.date_field :prescription_date, placeholder: "Enter Prescription Date" ,:class => 'txt_fld' %>
+       <% if prescription.errors.any? %>
+            <% prescription.errors.each do |error| %>
+                <% if error.full_message == "Prescription date can't be blank" %>
+                    <p class= "err_msg"><%= "Prescription date can't be blank"%></p>
+                <% end %>
+            <% end %>
+          <% end %>
     </div>
     <div class="actions">
       <div class =buttons_container>
