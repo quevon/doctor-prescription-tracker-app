@@ -18,8 +18,8 @@
             <% doctor.errors.each do |error| %>
                 <% if error.full_message == "Doctor num can't be blank" %>
                     <p class= "err_msg"><%= "Doctor number can't be blank"%></p>
-                <% else %>
-                  <p class= "err_msg"><%= "Invalid Number!(number must be 11 digits)"%></p>
+                <% elsif error.full_message == "Doctor num is the wrong length (should be 10 characters)" %>
+                  <p class= "err_msg"><%= "Invalid Number! (number should 11 digits)"  %></p>
                 <% end %>
             <% end %>
       <% end %>

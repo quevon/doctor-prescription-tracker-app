@@ -6,6 +6,8 @@
             <% drug.errors.each do |error| %>
                 <% if error.full_message == "Drug name can't be blank" %>
                     <p class= "err_msg"><%= "Drug name can't be blank"%></p>
+                <% elsif error.full_message == "Drug name has already been taken" %>
+                  <p class= "err_msg"><%= "Drug name has already been taken"%></p>
                 <% end %>
             <% end %>
           <% end %>
