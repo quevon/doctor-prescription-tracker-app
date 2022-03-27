@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class=header>Prescriptions</h1>
+<h1 class=header><%= @doctor.doctor_name%> Prescription</h1>
 <div class=arrow_back>
 <%= link_to doctors_path(@doctor) do %>
   <i class="fa-solid fa-arrow-left"></i>
@@ -12,7 +12,6 @@
     <tr>
       <th>Prescription ID</th>
       <th>Prescription date</th>
-      <th>Doctor</th>
       <th>Total Prescription Drugs</th>
       <th>Total Price</th>
       <th>Prescription Drugs</th>
@@ -25,7 +24,6 @@
       <tr>
         <td><%= prescription.id%></td>
         <td><%= prescription.prescription_date %></td>
-        <td><%= prescription.doctor.doctor_name %></td>
         <td><%= prescription.prescription_drugs.count %></td>
         <td><%= prescription.prescription_drugs.joins(:drug).sum("drug_price * quantity") %></td>
         <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>

@@ -2,25 +2,26 @@
 <% content_for :sidebar do %>
 this will show up in the sidebar div
 <% end %>
+<h1 class=header><%= @doctor.doctor_name%> Prescriptions</h1>
 <div class=table_containers>
   <table>
     <thead>
       <tr>
-        <th>Doctors Name</th>
-        <th>Phone Number</th>
         <th>Prescription ID</th>
         <th>Prescription Date</th>
+        <th>Total Prescription Drugs</th>
+        <th>Total Amount</th>
         <th>Prescription Drugs</th>
-
       </tr>
     </thead>
       <tbody>
         <% for prescription in @doctor.prescriptions%>
             <tr>
-              <td><%= @doctor.doctor_name %></td>
-              <td>  <%= @doctor.doctor_num %></td>
               <td><%= prescription.id %></td>
               <td><%= prescription.prescription_date %></td>
+              <td><%= prescription.prescription_drugs.count %></td>
+              <td><%= prescription.prescription_drugs.joins(:drug).sum("drug_price * quantity") %></td>
+              <%# <td><%= prescription.prescription_drugs.ids%></td> %>
               <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>
             </tr>
         <%end%>

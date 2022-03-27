@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1 class = header>Prescription Drugs</h1>
+<h1 class = header><%= @doctor.doctor_name%> Prescription Drugs</h1>
 <div class=arrow_back>
 <%= link_to doctor_prescriptions_path(@doctor) do %>
   <i class="fa-solid fa-arrow-left"></i>
@@ -9,11 +9,12 @@
 <table>
   <thead>
     <tr>
-      <th>Prescription</th>
-      <th>Drug</th>
+      <th>Prescription ID</th>
+      <th>Drug ID</th>
       <th>Drug Name</th>
       <th>Drug Price</th>
       <th>Quantity</th>
+      <th>Amount</th>
       <th>Note</th>
       <th>Prescription Date</th>
       <th colspan="3">Actions</th>
@@ -28,7 +29,9 @@
         <td><%= prescription_drug.drug.drug_name %></td>
         <td><%= prescription_drug.drug.drug_price %></td>
         <td><%= prescription_drug.quantity %></td>
+        <td><%= prescription_drug.drug.drug_price * prescription_drug.quantity%></td>
         <td><%= prescription_drug.note %></td>
+        
         <td><%= prescription_drug.prescription.prescription_date %></td>
         <td><%= link_to [@doctor] do %>
           <i class="fa-solid fa-eye"></i>
@@ -41,6 +44,8 @@
         <% end %></td>
       </tr>
     <% end %>
+
+    
   </tbody>
 </table>
 </div>
