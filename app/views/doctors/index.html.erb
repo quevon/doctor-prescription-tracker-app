@@ -3,7 +3,13 @@
 
 </h1>
 <i class="fa-duotone fa-prescription"></i>
-<%= render 'doctors/search_form.html.erb'%>
+
+
+<div class= "search-container">
+  <%= form_with url: doctors_path, method: :get do |form| %>
+    <%= form.text_field :query,placeholder: "Search", id: "search-input", class: "search" %>
+  <%end%>
+</div>
 
 <div class=table_containers>
 
@@ -18,25 +24,8 @@
         <th colspan="3">Actions</th>
       </tr>
     </thead>
-
-      <tbody>
-        <% @doctors.each do |doctor| %>
-          <tr>
-            <td><%= doctor.doctor_name %></td>
-            <td><%= doctor.doctor_num %></td>
-            <td><%= doctor.prescriptions.count %></td>
-            <td><%= link_to 'Prescriptions', doctor_prescriptions_path(doctor) %></td>
-            <td><%= link_to doctor do %>
-              <i class="fa-solid fa-eye"></i>
-            <% end %></td>
-            <td><%= link_to edit_doctor_path(doctor) do %>
-              <i class="fas fa-pen"></i>
-            <% end %></td>
-            <td><%= link_to  doctor, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="fa-solid fa-trash-can"></i>
-            <% end %></td>
-          </tr>
-        <% end %>
+      <tbody id="doctors-collection">
+        <%= render @doctors %>
       </tbody>
     </table>
   </div>
@@ -50,3 +39,6 @@
 <div class =buttons_container>
   <%= link_to 'Add New Doctor', new_doctor_path , :class => 'button'%>
 </div>
+
+
+<%= javascript_pack_tag 'index_search.js' %>

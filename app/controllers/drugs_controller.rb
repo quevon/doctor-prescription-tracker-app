@@ -3,7 +3,8 @@ class DrugsController < ApplicationController
 
   # GET /drugs or /drugs.json
   def index
-    @drugs = Drug.all
+    @q = Drug.ransack(params[:q])
+    @drugs = @q.result(distinct: true)
   end
 
   # GET /drugs/1 or /drugs/1.json

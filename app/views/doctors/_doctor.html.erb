@@ -1,0 +1,15 @@
+<tr>
+    <td><%= doctor.doctor_name %></td>
+    <td><%= doctor.doctor_num %></td>
+    <td><%= doctor.prescriptions.count %></td>
+    <td><%= link_to 'Prescriptions', doctor_prescriptions_path(doctor) %></td>
+    <td><%= link_to doctor do %>
+      <i class="fa-solid fa-eye"></i>
+    <% end %></td>
+    <td><%= link_to edit_doctor_path(doctor) do %>
+    <i class="fas fa-pen"></i>
+    <% end %></td>
+    <td><%= link_to  doctor, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="fa-solid fa-trash-can"></i>
+    <% end %></td>
+</tr>

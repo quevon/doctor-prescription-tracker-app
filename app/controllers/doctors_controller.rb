@@ -3,8 +3,7 @@ class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[ show edit update destroy ]
   # GET /doctors or /doctors.json
   def index
-    @q = Doctor.ransack(params[:q])
-    @doctors = @q.result(distinct: true)
+    @doctors = doctors
   end
   # GET /doctors/1 or /doctors/1.json
   def show
@@ -68,6 +67,13 @@ class DoctorsController < ApplicationController
       params.require(:doctor).permit(:doctor_name, :doctor_num)
     end
 
+
+    def search_query
+      params[:query]
+    end
   
-  
+    def doctors
+      query = Doctor.ransack(doctor_name_cont_any: search_query)
+      query.result(distinct: true)
+    end
 end
