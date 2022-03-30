@@ -32,7 +32,7 @@
         <td><%= "₱ #{prescription_drug.drug.drug_price}" %></td>
         <td><%= prescription_drug.quantity %></td>
         <td><%= prescription_drug.discount %></td>
-        <td><%= "₱ #{(prescription_drug.drug.drug_price) - (prescription_drug.drug.drug_price * prescription_drug.quantity) * (prescription_drug.discount.to_f / 100)}"%></td>
+        <td><%= "₱ #{(prescription_drug.drug.drug_price) - (prescription_drug.drug.drug_price * prescription_drug.quantity) * (prescription_drug.discount / 100)}"%></td>
         <td><%= prescription_drug.note %></td>
         <td><%= prescription_drug.prescription.prescription_date %></td>
         <td><%= link_to [@doctor] do %>
