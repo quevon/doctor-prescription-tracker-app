@@ -28,9 +28,9 @@
         <td><%= prescription_drug.prescription_id %></td>
         <td><%= prescription_drug.drug_id %></td>
         <td><%= prescription_drug.drug.drug_name %></td>
-        <td><%= prescription_drug.drug.drug_price %></td>
+        <td><%= "₱ #{prescription_drug.drug.drug_price}" %></td>
         <td><%= prescription_drug.quantity %></td>
-        <td><%= prescription_drug.drug.drug_price * prescription_drug.quantity%></td>
+        <td><%= "₱ #{prescription_drug.drug.drug_price * prescription_drug.quantity}"%></td>
         <td><%= prescription_drug.note %></td>
         <td><%= prescription_drug.prescription.prescription_date %></td>
         <td><%= link_to [@doctor] do %>
@@ -56,7 +56,7 @@
 <%end%>
 <br>
 <div class = total>
-  <%= "Total Amount: #{total}"%>
+  <%= "Total Amount:₱ #{total}"%>
 </div>
 <div class =buttons_container>
   <%= link_to 'New Prescription Drug', new_doctor_prescription_prescription_drug_path([@doctor,@prescription]) , :class => 'button' %>

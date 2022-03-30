@@ -25,7 +25,7 @@
         <td><%= prescription.id%></td>
         <td><%= prescription.prescription_date %></td>
         <td><%= prescription.prescription_drugs.count %></td>
-        <td><%= prescription.prescription_drugs.joins(:drug).sum("drug_price * quantity") %></td>
+        <td><%= "₱ #{prescription.prescription_drugs.joins(:drug).sum("drug_price * quantity")}" %></td>
         <td><%= link_to 'Prescription Drugs', doctor_prescription_prescription_drugs_path(@doctor,prescription) %></td>
         <td><%= link_to [@doctor] do %>
             <i class="fa-solid fa-eye"></i>
