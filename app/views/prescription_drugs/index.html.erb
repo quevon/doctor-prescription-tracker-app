@@ -15,6 +15,7 @@
       <th>Drug Name</th>
       <th>Drug Price</th>
       <th>Quantity</th>
+      <th>Discount</th>
       <th>Amount</th>
       <th>Note</th>
       <th>Prescription Date</th>
@@ -30,7 +31,8 @@
         <td><%= prescription_drug.drug.drug_name %></td>
         <td><%= "₱ #{prescription_drug.drug.drug_price}" %></td>
         <td><%= prescription_drug.quantity %></td>
-        <td><%= "₱ #{prescription_drug.drug.drug_price * prescription_drug.quantity}"%></td>
+        <td><%= prescription_drug.discount %></td>
+        <td><%= "₱ #{(prescription_drug.drug.drug_price) - (prescription_drug.drug.drug_price * prescription_drug.quantity) * (prescription_drug.discount.to_f / 100)}"%></td>
         <td><%= prescription_drug.note %></td>
         <td><%= prescription_drug.prescription.prescription_date %></td>
         <td><%= link_to [@doctor] do %>
@@ -43,7 +45,7 @@
           <i class="fa-solid fa-trash-can"></i>
         <% end %></td>
       </tr>
-      <% total = total + (prescription_drug.drug.drug_price * prescription_drug.quantity)%>
+      <% total = total + ((prescription_drug.drug.drug_price) - (prescription_drug.drug.drug_price * prescription_drug.quantity) * (prescription_drug.discount.to_f / 100)) %>
     <% end %>
 
   </tbody>
@@ -56,7 +58,7 @@
 <%end%>
 <br>
 <div class = total>
-  <%= "Total Amount:₱ #{total}"%>
+  <%= "Total Amount:₱ #{total.to_d}"%>
 </div>
 <div class =buttons_container>
   <%= link_to 'New Prescription Drug', new_doctor_prescription_prescription_drug_path([@doctor,@prescription]) , :class => 'button' %>

@@ -26,7 +26,7 @@
           <% end %>
     </div>
     <div class="field">
-      <%= form.number_field :discount, placeholder: "Enter Discount Percent" ,:class => 'txt_fld' %>
+      <%= form.number_field :discount, placeholder: "Enter Discount Percentage" ,:class => 'txt_fld' %>
       <% if prescription_drug.errors.any? %>
             <% prescription_drug.errors.each do |error| %>
                 <% if error.full_message == "Discount can't be blank" %>
