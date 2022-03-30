@@ -197,6 +197,16 @@ ul li a{
   color: red;
   font-size: 2rem;
 }
+/* search styling  */
 .search-container{
-  padding-left: 20px;
+  padding: 10px 0 10px 260px;
+}
+.search{
+  font-size: 1.5rem;
+}
+
+/* total styling  */
+
+.total{
+  font-size: 1.5rem;
 }

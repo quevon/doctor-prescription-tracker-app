@@ -8,7 +8,10 @@ class PrescriptionsController < ApplicationController
     @prescriptions = @doctor.prescriptions
     # @prescriptions = Prescription.all
     # @prescription = @doctor.prescriptions
+    
   end
+
+  
   # GET /prescriptions/1 or /prescriptions/1.json
   def show
   end

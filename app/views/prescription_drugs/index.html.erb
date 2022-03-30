@@ -6,6 +6,7 @@
 <% end %>
 </div>
 <div class=table_containers>
+ <% total = 0%>
 <table>
   <thead>
     <tr>
@@ -31,7 +32,6 @@
         <td><%= prescription_drug.quantity %></td>
         <td><%= prescription_drug.drug.drug_price * prescription_drug.quantity%></td>
         <td><%= prescription_drug.note %></td>
-        
         <td><%= prescription_drug.prescription.prescription_date %></td>
         <td><%= link_to [@doctor] do %>
           <i class="fa-solid fa-eye"></i>
@@ -43,9 +43,9 @@
           <i class="fa-solid fa-trash-can"></i>
         <% end %></td>
       </tr>
+      <% total = total + (prescription_drug.drug.drug_price * prescription_drug.quantity)%>
     <% end %>
 
-    
   </tbody>
 </table>
 </div>
@@ -55,7 +55,9 @@
   <div>
 <%end%>
 <br>
-
+<div class = total>
+  <%= "Total Amount: #{total}"%>
+</div>
 <div class =buttons_container>
   <%= link_to 'New Prescription Drug', new_doctor_prescription_prescription_drug_path([@doctor,@prescription]) , :class => 'button' %>
 </div>

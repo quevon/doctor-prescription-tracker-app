@@ -16,13 +16,7 @@
       <%= form.number_field :doctor_num , placeholder: "Enter Doctor Number",:class => 'txt_fld'%>
       <% if doctor.errors.full_messages_for(:doctor_num).any? %>
             <% doctor.errors.full_messages_for(:doctor_num).each do |error| %>
-                    <%# <p class= "err_msg"><%= "Doctor number can't be blank"%></p>
                 <p class = err_msg><%= error%></p>
-                <%# <% if error.full_message == "Doctor num can't be blank" %>
-                    <%# <p class= "err_msg"><%= "Doctor number can't be blank"%></p>
-                <%# <% elsif error.full_message == "Doctor num is the wrong length (should be 10 characters)" %> %>
-                  <%# <p class= "err_msg"><%= "Invalid Number! (number should 11 digits)"  %></p> %> %>
-                <%# <% end %> %> %>
             <% end %>
       <% end %>
     </div>

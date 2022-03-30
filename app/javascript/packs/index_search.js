@@ -20,6 +20,6 @@ function getSearchResults(event) {
             'X-Requested-with': 'XMLHTTPRequest'
         }
     }).then ((response) =>{
-        doctors_table.innerHTML = response.data
+       doctors_table.innerHTML = response.data
     })
 }

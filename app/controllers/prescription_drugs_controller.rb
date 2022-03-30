@@ -7,9 +7,12 @@ class PrescriptionDrugsController < ApplicationController
   def index
     @prescription = Prescription.find(params[:prescription_id])
     @prescription_drugs = @prescription.prescription_drugs
-
+  
   end
 
+  def total
+      p "test"
+  end
   
   # GET /prescription_drugs/1 or /prescription_drugs/1.json
   def show
@@ -80,4 +83,8 @@ class PrescriptionDrugsController < ApplicationController
     def get_doctor
       @doctor = Doctor.find(params[:doctor_id])
     end
+
+  
+     
+
 end
