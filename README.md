@@ -3,7 +3,7 @@
 ## User Stories
 ### Requirements:
 1. As a User I want to register my doctor so that I could track who are my doctors
-2.As a User I want to register the medicine provided by the doctor so that I could reuse them again in future prescriptions
+2. As a User I want to register the medicine provided by the doctor so that I could reuse them again in future prescriptions
 3. As a User I want to note down the prescription sent by my doctor so that I could keep track what are my needed medicine
 4. As a user I want to track the cost of each medicine listed in the prescription
 5. As a user I want to see the total cost for each prescription.
