@@ -13,9 +13,6 @@
 * Be able to add discount on certain medicines on selected prescriptions. (No new model needed)
 # Blog Website
 ![news](docs/images/news.jpg)
-Blog Website using api
-# API
-<a href="https://newsapi.org/" target="_blank">NewsApi</a>
 # Gem
 ```ruby
  gem 'rest-client'
