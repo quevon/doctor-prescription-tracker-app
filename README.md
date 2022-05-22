@@ -6,8 +6,6 @@
 3. As a User I want to note down the prescription sent by my doctor so that I could keep track what are my needed medicine
 4. As a user I want to track the cost of each medicine listed in the prescription
 5. As a user I want to see the total cost for each prescription.
-### Have a complete README documentation
-* Just make it available in the controllers and routes for testing purposes
 ### Note:
 * No need to create a new model for Pharmacist and Patient.
 ### Challenge:
