@@ -1,24 +1,25 @@
-# Doctor Prescription App
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# doctor-prescription-tracker-app
+# Doctor Prescription Tracker App
+## User Stories
+### Requirements:
+1. As a User I want to register my doctor so that I could track who are my doctors
+2.As a User I want to register the medicine provided by the doctor so that I could reuse them again in future prescriptions
+3. As a User I want to note down the prescription sent by my doctor so that I could keep track what are my needed medicine
+4. As a user I want to track the cost of each medicine listed in the prescription
+5. As a user I want to see the total cost for each prescription.
+### Have a complete README documentation
+* Just make it available in the controllers and routes for testing purposes
+### Note:
+* No need to create a new model for Pharmacist and Patient.
+### Challenge:
+* Be able to add discount on certain medicines on selected prescriptions. (No new model needed)
+# Blog Website
+![news](docs/images/news.jpg)
+Blog Website using api
+# API
+<a href="https://newsapi.org/" target="_blank">NewsApi</a>
+# Gem
+```ruby
+ gem 'rest-client'
+```
+# Ruby Version
+* 3.0.3
