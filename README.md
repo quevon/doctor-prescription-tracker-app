@@ -1,4 +1,5 @@
 # Doctor Prescription Tracker App
+<a href="[https://newsapi.org/](https://doctor-prescriptions-app.herokuapp.com/)" target="_blank">View Live</a>
 ## User Stories
 ### Requirements:
 1. As a User I want to register my doctor so that I could track who are my doctors
